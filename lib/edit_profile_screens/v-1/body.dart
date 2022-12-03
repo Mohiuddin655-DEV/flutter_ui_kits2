@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_kits/edit_profile_screens/v-1/widgets/edit_avatar_view.dart';
 import 'package:flutter_ui_kits/edit_profile_screens/v-1/widgets/edit_field.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/constants.dart';
@@ -23,10 +24,18 @@ class _EditProfileV1BodyState extends State<EditProfileV1Body> {
     print(image);
     if (image == null) return;
     File? img = File(image.path);
+    img = await _cropImage(imageFile: img);
     setState(() {
       _image = img;
       print(_image);
     });
+  }
+
+  Future<File?> _cropImage({required File imageFile}) async {
+    CroppedFile? croppedImage =
+        await ImageCropper().cropImage(sourcePath: imageFile.path);
+    if (croppedImage == null) return null;
+    return File(croppedImage.path);
   }
 
   @override
