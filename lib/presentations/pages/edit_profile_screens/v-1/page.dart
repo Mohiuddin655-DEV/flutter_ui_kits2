@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kits/edit_profile_screens/v-1/body.dart';
+
+import 'body.dart';
 
 class EditProfileV1Page extends StatelessWidget {
   const EditProfileV1Page({Key? key}) : super(key: key);

@@ -15,7 +15,7 @@ class AvatarView extends StatelessWidget {
 
   const AvatarView({
     Key? key,
-    required this.imageFile,
+    this.imageFile,
     this.width = 100,
     this.height = 100,
     this.isCircular = true,
@@ -50,8 +50,6 @@ class AvatarView extends StatelessWidget {
             borderRadius: !isCircular ? borderRadius : null,
           ),
           child: Container(
-            width: width,
-            height: height,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               color: backgroundColor,
@@ -69,16 +67,22 @@ class AvatarView extends StatelessWidget {
     if (imageUrl != null && imageUrl!.isNotEmpty) {
       return Image.network(
         imageUrl!,
+        width: width,
+        height: height,
         fit: BoxFit.cover,
       );
     } else if (imageFile != null) {
       return Image.file(
         imageFile!,
+        width: width,
+        height: height,
         fit: BoxFit.cover,
       );
     } else if (imageAsset != null && imageAsset!.isNotEmpty) {
       return Image.asset(
         imageAsset!,
+        width: width,
+        height: height,
         fit: BoxFit.cover,
       );
     } else {

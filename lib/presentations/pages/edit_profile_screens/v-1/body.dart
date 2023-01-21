@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kits/edit_profile_screens/v-1/widgets/edit_avatar_view.dart';
-import 'package:flutter_ui_kits/edit_profile_screens/v-1/widgets/edit_field.dart';
+import 'package:flutter_ui_kits/presentations/pages/edit_profile_screens/v-1/widgets/edit_avatar_view.dart';
+import 'package:flutter_ui_kits/presentations/pages/edit_profile_screens/v-1/widgets/edit_field.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../core/constants.dart';
+import '../../../../core/constants.dart';
 import 'widgets/dropdown_field.dart';
 
 class EditProfileV1Body extends StatefulWidget {
